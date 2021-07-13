@@ -1,0 +1,7 @@
+#include "il2cpp-config.h"
+#include "D:\Unityar\2021.1.0b4\Editor\Data\il2cpp\libil2cpp\gc\BoehmGC.cpp"
+#include "D:\Unityar\2021.1.0b4\Editor\Data\il2cpp\libil2cpp\gc\GCHandle.cpp"
+#include "D:\Unityar\2021.1.0b4\Editor\Data\il2cpp\libil2cpp\gc\GarbageCollector.cpp"
+#include "D:\Unityar\2021.1.0b4\Editor\Data\il2cpp\libil2cpp\gc\NullGC.cpp"
+#include "D:\Unityar\2021.1.0b4\Editor\Data\il2cpp\libil2cpp\gc\WriteBarrier.cpp"
+#include "D:\Unityar\2021.1.0b4\Editor\Data\il2cpp\libil2cpp\gc\WriteBarrierValidation.cpp"
