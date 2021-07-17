@@ -27261,7 +27261,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ObjectPool_1_Add_mBD45ACF61AECB42506B4CF
 	UnityAction_1_t5CF46572372725E6225588C466A7AF5C8597AA79 * G_B5_0 = NULL;
 	UnityAction_1_t5CF46572372725E6225588C466A7AF5C8597AA79 * G_B4_0 = NULL;
 	{
-		// for (int i U3D 0U3B i < countU3B iU2BU2B)
+		// for (var i U3D 0U3B i < countU3B iU2BU2B)
 		V_0 = (int32_t)0;
 		goto IL_0037;
 	}
@@ -27287,14 +27287,14 @@ IL_0004:
 		RuntimeObject * L_6 = V_1;
 		NullCheck((List_1_t3F94120C77410A62EAE48421CF166B83AB95A2F5 *)L_5);
 		((  void (*) (List_1_t3F94120C77410A62EAE48421CF166B83AB95A2F5 *, RuntimeObject *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->klass->rgctx_data, 12)->methodPointer)((List_1_t3F94120C77410A62EAE48421CF166B83AB95A2F5 *)L_5, (RuntimeObject *)L_6, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->klass->rgctx_data, 12));
-		// for (int i U3D 0U3B i < countU3B iU2BU2B)
+		// for (var i U3D 0U3B i < countU3B iU2BU2B)
 		int32_t L_7 = V_0;
 		V_0 = (int32_t)((int32_t)il2cpp_codegen_add((int32_t)L_7, (int32_t)1));
 	}
 
 IL_0037:
 	{
-		// for (int i U3D 0U3B i < countU3B iU2BU2B)
+		// for (var i U3D 0U3B i < countU3B iU2BU2B)
 		int32_t L_8 = V_0;
 		int32_t L_9 = ___count0;
 		if ((((int32_t)L_8) < ((int32_t)L_9)))
