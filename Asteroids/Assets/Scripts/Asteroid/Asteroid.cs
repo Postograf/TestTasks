@@ -4,21 +4,19 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Asteroid : ObjectPoolUser<Asteroid>, IScorable
 {
-
     public static readonly int fragmentsCount = 2;
 
-    private Rigidbody2D _rigidbody;
     private AudioSource _audioSource;
 
     public event UnityAction<Asteroid> Destroyed;
     public event UnityAction<ObjectPool<Asteroid>, Vector3, Vector2> Splited;
     public event UnityAction Scored;
 
-    public Rigidbody2D Rigidbody => _rigidbody;
+    public Rigidbody2D Rigidbody { get; private set; }
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
 
         TryGetComponent(out _audioSource);
     }
@@ -36,7 +34,7 @@ public class Asteroid : ObjectPoolUser<Asteroid>, IScorable
     {
         if (pool != null)
         {
-            Splited?.Invoke(pool, transform.position, _rigidbody.velocity);
+            Splited?.Invoke(pool, transform.position, Rigidbody.velocity);
         }
 
         Scored?.Invoke();

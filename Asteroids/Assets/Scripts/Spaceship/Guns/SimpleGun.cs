@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleGun : Gun
@@ -12,8 +11,7 @@ public class SimpleGun : Gun
         {
             base.Shoot();
 
-            bullet.transform.position = _shootPoint.position;
-            bullet.transform.rotation = transform.rotation;
+            bullet.transform.SetPositionAndRotation(_shootPoint.position, transform.rotation);
 
             bullet.gameObject.SetActive(true);
 

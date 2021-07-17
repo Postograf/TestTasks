@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameField : MonoBehaviour
@@ -20,7 +18,7 @@ public class GameField : MonoBehaviour
 
     private void LateUpdate()
     {
-        for (int i = 0; i < _container.childCount; i++)
+        for (var i = 0; i < _container.childCount; i++)
         {
             var screenObject = _container.GetChild(i);
 
@@ -44,7 +42,8 @@ public class GameField : MonoBehaviour
         {
             return min;
         }
-        else if (value < min)
+        
+        if (value < min)
         {
             return max;
         }

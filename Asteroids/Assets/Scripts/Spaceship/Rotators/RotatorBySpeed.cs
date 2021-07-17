@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-
 using UnityEngine;
 
 public class RotatorBySpeed : Rotator
@@ -25,8 +21,8 @@ public class RotatorBySpeed : Rotator
     {
         _from = transform.rotation;
 
-        var nextRotaionInDegrees = rotationDegrees - transform.rotation.eulerAngles.z;
-        _to = Quaternion.AngleAxis(nextRotaionInDegrees, Vector3.back);
+        var nextRotationInDegrees = rotationDegrees - transform.rotation.eulerAngles.z;
+        _to = Quaternion.AngleAxis(nextRotationInDegrees, Vector3.back);
 
         _delta = 0;
     }

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlsSwitcher : MonoBehaviour
@@ -21,10 +18,6 @@ public class ControlsSwitcher : MonoBehaviour
         }
 
         _controlMaps[_indexOfEnabled].enabled = true;
-    }
-
-    private void Start()
-    {
     }
 
     public string Switch()

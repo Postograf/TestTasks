@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Pool;
 
 public abstract class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
 {
@@ -34,8 +32,8 @@ public abstract class ObjectPool<T> : MonoBehaviour where T : MonoBehaviour
 
     protected void Add(int count = 1)
     {
-        for (int i = 0; i < count; i++)
-{
+        for (var i = 0; i < count; i++)
+        {
             var poolObject = _creator.Create(_container);
 
             poolObject.gameObject.SetActive(false);

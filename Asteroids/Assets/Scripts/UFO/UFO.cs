@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class UFO : ObjectPoolUser<UFOBullet>, IScorable
@@ -12,19 +9,18 @@ public class UFO : ObjectPoolUser<UFOBullet>, IScorable
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private Vector2 _shootDelayRange;
 
-    private Rigidbody2D _rigidbody;
     private Spaceship _target;
     private Vector2 _lastTargetPosition;
     private float _lastTargetShootForce;
 
-    public Rigidbody2D Rigidbody => _rigidbody;
+    public Rigidbody2D Rigidbody { get; private set; }
 
     public event UnityAction<UFO> Destroyed;
     public event UnityAction Scored;
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()

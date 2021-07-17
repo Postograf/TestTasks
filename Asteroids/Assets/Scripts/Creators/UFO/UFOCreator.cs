@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UFOCreator : Creator<UFO>
@@ -10,16 +8,7 @@ public class UFOCreator : Creator<UFO>
 
     public override UFO Create(Transform parent)
     {
-        UFO ufo;
-
-        if (parent != null)
-        {
-            ufo = Instantiate(_prefab, parent);
-        }
-        else
-        {
-            ufo = Instantiate(_prefab);
-        }
+        var ufo = parent != null ? Instantiate(_prefab, parent) : Instantiate(_prefab);
 
         ufo.pool = _objectPoolToUse;
         ufo.spaceshipSpawner = _spaceshipSpawner;

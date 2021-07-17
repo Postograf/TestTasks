@@ -1,26 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rotator), typeof(Mover), typeof(Gun))]
 public class Spaceship : MonoBehaviour
 {
-    private Gun _gun;
-    private Mover _mover;
-    private Rotator _rotator;
+    public Gun Gun { get; private set; }
 
-    public Gun Gun => _gun;
-    public Mover Mover => _mover;
-    public Rotator Rotator => _rotator;
+    public Mover Mover { get; private set; }
+
+    public Rotator Rotator { get; private set; }
 
     public event UnityAction<Vector2, Quaternion> Died;
 
     private void Awake()
     {
-        _gun = GetComponent<Gun>();
-        _mover = GetComponent<Mover>();
-        _rotator = GetComponent<Rotator>();
+        Gun = GetComponent<Gun>();
+        Mover = GetComponent<Mover>();
+        Rotator = GetComponent<Rotator>();
     }
 
     private void OnDestroy()
@@ -30,21 +26,21 @@ public class Spaceship : MonoBehaviour
 
     public void Move()
     {
-        _mover.Move();
+        Mover.Move();
     }
 
     public void Rotate(float rotationDegrees)
     {
-        _rotator.Rotate(rotationDegrees);
+        Rotator.Rotate(rotationDegrees);
     }
 
     public void RotateTo(Vector2 target)
     {
-        _rotator.RotateTo(target);
+        Rotator.RotateTo(target);
     }
 
     public bool Shoot()
     {
-        return _gun.Shoot();
+        return Gun.Shoot();
     }
 }

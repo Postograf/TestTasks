@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +22,7 @@ public class HealthView : MonoBehaviour
         var transform = GetComponent<RectTransform>();
         layoutGroup.cellSize = new Vector2(transform.rect.width / value, layoutGroup.cellSize.y);
 
-        for (int i = 0; i < value; i++)
+        for (var i = 0; i < value; i++)
         {
             _healthImages.Push(Instantiate(_healthImagePrefab, transform));
         }

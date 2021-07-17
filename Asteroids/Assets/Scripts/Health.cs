@@ -1,16 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class Health : ObjectPoolUser<Spaceship>
 {
     [SerializeField] private SpaceshipSpawner _spaceshipSpawner;
 
-    private int _value;
-
-    public int Value => _value;
+    public int Value { get; private set; }
 
     public UnityAction<int> Initialized;
     public UnityAction HealthDecreased;
@@ -23,8 +18,8 @@ public class Health : ObjectPoolUser<Spaceship>
 
     private void Start()
     {
-        _value = pool.Count;
-        Initialized?.Invoke(_value);
+        Value = pool.Count;
+        Initialized?.Invoke(Value);
     }
 
     private void OnDisable()
@@ -34,16 +29,16 @@ public class Health : ObjectPoolUser<Spaceship>
 
     private void OnShipSpawn(Spaceship spaceship)
     {
-        spaceship.Died += (x, y) => OnShipDestoy();
+        spaceship.Died += (x, y) => OnShipDestroy();
     }
 
-    private void OnShipDestoy()
+    private void OnShipDestroy()
     {
-        _value--;
+        Value--;
 
         HealthDecreased?.Invoke();
 
-        if (_value == 0)
+        if (Value == 0)
         {
             PlayerDied?.Invoke();
         }

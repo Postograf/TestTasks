@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,9 +8,7 @@ public class SpaceshipSpawner : ObjectPoolUser<Spaceship>
     [SerializeField] private Vector2 _startPoint;
     [SerializeField] private Vector3 _startRotation;
 
-    private Spaceship _spaceship;
-
-    public Spaceship Spaceship => _spaceship;
+    public Spaceship Spaceship { get; private set; }
 
     public event UnityAction<Spaceship> ShipSpawned;
 
@@ -22,15 +19,15 @@ public class SpaceshipSpawner : ObjectPoolUser<Spaceship>
 
     private void OnEnable()
     {
-        if (_spaceship != null)
+        if (Spaceship != null)
         {
-            _spaceship.Died += OnShipDeath;
+            Spaceship.Died += OnShipDeath;
         }
     }
 
     private void OnDisable()
     {
-        _spaceship.Died -= OnShipDeath;
+        Spaceship.Died -= OnShipDeath;
     }
 
     private void OnShipDeath(Vector2 deadPoint, Quaternion deadRotation)
@@ -47,20 +44,20 @@ public class SpaceshipSpawner : ObjectPoolUser<Spaceship>
     {
         if (pool.TryGetObject(out var obj)) 
         {
-            _spaceship = obj.GetComponent<Spaceship>();
+            Spaceship = obj;
 
-            _spaceship.transform.SetPositionAndRotation(spawnPoint, rotation);
+            Spaceship.transform.SetPositionAndRotation(spawnPoint, rotation);
 
             foreach (var controls in _controlMaps)
             {
-                controls.ship = _spaceship;
+                controls.ship = Spaceship;
             }
 
-            _spaceship.Died += OnShipDeath;
+            Spaceship.Died += OnShipDeath;
 
-            _spaceship.gameObject.SetActive(true);
+            Spaceship.gameObject.SetActive(true);
 
-            ShipSpawned?.Invoke(_spaceship);
+            ShipSpawned?.Invoke(Spaceship);
         }
     }
 

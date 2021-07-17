@@ -74,7 +74,7 @@ public class AsteroidsSpawner : ObjectPoolUser<Asteroid>
             asteroid.transform.position = position;
             asteroid.gameObject.SetActive(true);
 
-            float normalSpeed = speed == null
+            var normalSpeed = speed == null
                 ? Random.Range(_speedRange.x, _speedRange.y)
                 : speed.Value;
 
@@ -86,7 +86,7 @@ public class AsteroidsSpawner : ObjectPoolUser<Asteroid>
         }
     }
 
-    public void OnAsteroidSplit(
+    private void OnAsteroidSplit(
         ObjectPool<Asteroid> asteroidsPool,
         Vector3 position,
         Vector2 direction
@@ -94,9 +94,9 @@ public class AsteroidsSpawner : ObjectPoolUser<Asteroid>
     {
         var speed = Random.Range(_speedRange.x, _speedRange.y);
 
-        for (int i = 0; i < Asteroid.fragmentsCount; i++)
+        for (var i = 0; i < Asteroid.fragmentsCount; i++)
         {
-            int sign = i % 2 == 0 ? 1 + i / 2 : -1 - i / 2;
+            var sign = i % 2 == 0 ? 1 + i / 2 : -1 - i / 2;
             
             var fragmentDirection = direction.RotateByAngle(sign * _splitDeviationAngle);
 

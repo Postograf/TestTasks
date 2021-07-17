@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using TMPro;
 
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ControlsButton : MonoBehaviour
 {
@@ -40,6 +36,6 @@ public class ControlsButton : MonoBehaviour
 
     private void SetName(string name)
     {
-        _buttonName.text = $"Управление: {name}";
+        _buttonName.text = $"РЈРїСЂР°РІР»РµРЅРёРµ: {name}";
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceshipsCreator : Creator<Spaceship>
@@ -9,16 +7,7 @@ public class SpaceshipsCreator : Creator<Spaceship>
 
     public override Spaceship Create(Transform parent)
     {
-        Spaceship ship;
-
-        if (parent != null)
-        {
-            ship = Instantiate(_prefab, parent);
-        }
-        else
-        {
-            ship = Instantiate(_prefab);
-        }
+        var ship = parent != null ? Instantiate(_prefab, parent) : Instantiate(_prefab);
 
         ship.GetComponent<Gun>().pool = _objectPoolToUse;
 
