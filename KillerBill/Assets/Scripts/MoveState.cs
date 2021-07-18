@@ -46,7 +46,7 @@ public class MoveState : MonoBehaviour
             _animator.SetFloat(_animationSpeed, _speed);
             
             transform.LookAt(transform.position + lookDirection);
-            _controller.Move(moveDirection * (_speed * Time.deltaTime));
+            _controller.Move((moveDirection + Physics.gravity) * (_speed * Time.deltaTime));
         }
         else
         {

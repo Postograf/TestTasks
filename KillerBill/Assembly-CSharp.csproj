@@ -52,16 +52,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AttackState.cs" />
      <Compile Include="Assets\Scripts\MouseTracker.cs" />
      <Compile Include="Assets\Scripts\MoveState.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\CameraMover.cs" />
+     <Compile Include="Assets\Scripts\IdleState.cs" />
+     <Compile Include="Assets\Scripts\RegDoll.cs" />
      <Compile Include="Assets\Test.cs" />
      <Compile Include="Assets\Scripts\PlayerStateMachine.cs" />
-     <Compile Include="Assets\Scripts\IdleState.cs" />
-     <Compile Include="Assets\Scripts\AttackState.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\AttackStateAnimation.cs" />
-     <Compile Include="Assets\Scripts\RegDoll.cs" />
      <Compile Include="Assets\Scripts\WeaponSwitcher.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/Unityar/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
